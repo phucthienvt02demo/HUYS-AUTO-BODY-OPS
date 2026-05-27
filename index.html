@@ -1,321 +1,227 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>HUYS AUTO BODY OPS</title>
-
 <style>
-*{
-box-sizing:border-box;
-}
-
-body{
-margin:0;
-font-family:Arial,sans-serif;
-background:#070707;
-color:white;
-}
-
-.header{
-background:#111;
-padding:18px 22px;
-border-bottom:1px solid #333;
-display:flex;
-justify-content:space-between;
-align-items:center;
-}
-
-.logo{
-color:#f5c542;
-font-size:28px;
-font-weight:900;
-}
-
-.container{
-padding:22px;
-}
-
-.grid{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
-gap:20px;
-}
-
-.card{
-background:#161616;
-border:1px solid #333;
-border-radius:18px;
-padding:20px;
-}
-
-.card h3{
-color:#f5c542;
-margin-top:0;
-}
-
-button{
-background:#f5c542;
-border:none;
-padding:10px 14px;
-border-radius:10px;
-cursor:pointer;
-font-weight:bold;
-margin-top:8px;
-}
-
-input,select{
-width:100%;
-padding:10px;
-margin-top:8px;
-margin-bottom:12px;
-border-radius:10px;
-border:1px solid #444;
-background:#222;
-color:white;
-}
-
-.status-btn{
-padding:8px 12px;
-border-radius:8px;
-margin-right:8px;
-margin-top:8px;
-display:inline-block;
-cursor:pointer;
-font-weight:bold;
-}
-
-.notstarted{
-background:#444;
-}
-
-.doing{
-background:#1457b8;
-}
-
-.done{
-background:#15803d;
-}
-
-.login-page{
-height:100vh;
-display:flex;
-justify-content:center;
-align-items:center;
-}
-
-.login-box{
-background:#111;
-padding:40px;
-border-radius:20px;
-width:400px;
-border:1px solid #333;
-}
-
-.hidden{
-display:none;
-}
-
-.vehicle-line{
-display:grid;
-grid-template-columns:2fr 1fr 1fr;
-gap:10px;
-margin-bottom:10px;
-}
-
-.alert{
-color:#ff5f5f;
-font-weight:bold;
-margin-bottom:10px;
-}
-
+*{box-sizing:border-box}
+body{margin:0;font-family:Arial,sans-serif;background:#070707;color:white}
+.header{background:#111;padding:18px 24px;border-bottom:1px solid #333;display:flex;justify-content:space-between;align-items:center}
+.logo{color:#f5c542;font-size:28px;font-weight:900}
+.container{padding:22px}
+.card{background:#161616;border:1px solid #333;border-radius:18px;padding:20px;box-shadow:0 8px 25px rgba(0,0,0,.25)}
+.card h3{color:#f5c542;margin-top:0}
+.top-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:20px}
+.module-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px;margin-top:25px}
+.module{background:#171717;border:1px solid #333;border-radius:18px;padding:22px;cursor:pointer;transition:.2s}
+.module:hover{border-color:#f5c542;transform:translateY(-2px)}
+.module h3{color:#f5c542;margin:0 0 10px}
+button{background:#f5c542;border:none;padding:10px 14px;border-radius:10px;cursor:pointer;font-weight:bold;margin:5px}
+.btn-blue{background:#1457b8;color:white}
+.btn-green{background:#15803d;color:white}
+.btn-gray{background:#444;color:white}
+input,select,textarea{width:100%;padding:10px;margin:6px 0 12px;border-radius:10px;border:1px solid #444;background:#222;color:white}
+.hidden{display:none}
+.login-page{height:100vh;display:flex;align-items:center;justify-content:center}
+.login-box{background:#111;border:1px solid #333;border-radius:22px;padding:38px;width:420px}
+.status{display:inline-block;padding:5px 10px;border-radius:20px;background:#333;font-size:12px}
+.alert-red{color:#ff5f5f;font-weight:bold}
+.alert-yellow{color:#ffd23f;font-weight:bold}
+.table{width:100%;border-collapse:collapse}
+.table th,.table td{border-bottom:1px solid #333;padding:10px;text-align:left}
+.line-grid{display:grid;grid-template-columns:2fr 1fr 1fr;gap:10px}
 </style>
 </head>
 
 <body>
 
 <div id="loginPage" class="login-page">
-
-<div class="login-box">
-
-<div class="logo">
-HUYS AUTO BODY OPS
+  <div class="login-box">
+    <div class="logo">HUYS AUTO BODY OPS</div>
+    <h2>ops.huysautobody.com</h2>
+    <label>Email</label>
+    <input id="email" type="text" />
+    <label>Password</label>
+    <input id="password" type="password" />
+    <button onclick="login()">LOGIN</button>
+  </div>
 </div>
 
-<h2>ops.huysautobody.com</h2>
+<div id="dashboard" class="hidden">
 
-<label>Email</label>
-<input type="text" id="email">
+  <div class="header">
+    <div>
+      <div class="logo">HUYS AUTO BODY OPS</div>
+      <div>Internal Operations Command Center</div>
+    </div>
+    <div>Logged in: Joseph / System Admin</div>
+  </div>
 
-<label>Password</label>
-<input type="password" id="password">
+  <div class="container">
 
-<button onclick="login()">LOGIN</button>
+    <div class="top-grid">
+      <div class="card">
+        <h3>Henry Tasks Today</h3>
+        <p>Monday • June 1, 2026</p>
+        <p>1. Call GEICO supplement for RO-260601</p>
+        <button class="btn-gray">Chưa làm</button><button class="btn-blue">Đang làm</button><button class="btn-green">Xong</button>
+        <hr>
+        <p>2. Review overdue cars and profit alerts</p>
+        <button class="btn-gray">Chưa làm</button><button class="btn-blue">Đang làm</button><button class="btn-green">Xong</button>
+      </div>
 
-</div>
+      <div class="card">
+        <h3>Jenny Tasks Today</h3>
+        <p>Monday • June 1, 2026</p>
+        <p>1. Update cash in/out for today</p>
+        <button class="btn-gray">Chưa làm</button><button class="btn-blue">Đang làm</button><button class="btn-green">Xong</button>
+        <hr>
+        <p>2. Print customer report for new intake</p>
+        <button class="btn-gray">Chưa làm</button><button class="btn-blue">Đang làm</button><button class="btn-green">Xong</button>
+      </div>
 
-</div>
+      <div class="card">
+        <h3>Alerts / Vehicle Warnings</h3>
+        <p class="alert-red">RO-260601 losing profit</p>
+        <p class="alert-yellow">RO-260603 waiting parts</p>
+        <p class="alert-yellow">RO-260610 insurance no response</p>
+      </div>
+    </div>
 
-<div id="dashboardPage" class="hidden">
+    <div class="module-grid">
+      <div class="module" onclick="openModule('intake')"><h3>New Vehicle Intake</h3><p>Nhập xe mới, estimate, line items, customer report.</p></div>
+      <div class="module" onclick="openModule('workflow')"><h3>Vehicle Workflow Board</h3><p>Xe đang ở stage nào, ai đang giữ, deadline.</p></div>
+      <div class="module" onclick="openModule('employees')"><h3>Employee Management</h3><p>Danh sách thợ, role, phone, skill.</p></div>
+      <div class="module" onclick="openModule('tech')"><h3>Technician Assignments</h3><p>Phân việc thợ, rổ job slip, next step.</p></div>
+      <div class="module" onclick="openModule('insurance')"><h3>Insurance Cases</h3><p>Claim, adjuster, supplement, approval.</p></div>
+      <div class="module" onclick="openModule('cash')"><h3>Cash Cases</h3><p>Deposit, balance, payment status.</p></div>
+      <div class="module" onclick="openModule('parts')"><h3>Parts Ordering</h3><p>Ordered, received, backorder, wrong part.</p></div>
+      <div class="module" onclick="openModule('inventory')"><h3>Inventory</h3><p>Supplies in/out, low stock, reorder alerts.</p></div>
+      <div class="module" onclick="openModule('cashflow')"><h3>Cash Flow</h3><p>Tiền vô/ra trong ngày, vendor payments.</p></div>
+      <div class="module" onclick="openModule('profit')"><h3>Profit Tracking</h3><p>Lời dự kiến, lời thật, delay cost.</p></div>
+      <div class="module" onclick="openModule('customer')"><h3>Customer Database</h3><p>Search theo phone, VIN, RO, claim.</p></div>
+      <div class="module" onclick="openModule('evidence')"><h3>Evidence Records</h3><p>Link folder hình/video trên server shop.</p></div>
+      <div class="module" onclick="openModule('warranty')"><h3>Warranty Records</h3><p>Lưu hồ sơ 3–5 năm, customer return.</p></div>
+      <div class="module" onclick="openModule('print')"><h3>Print Center</h3><p>Customer report, job slip, release form.</p></div>
+      <div class="module" onclick="openModule('admin')"><h3>System Admin</h3><p>User, password, role, audit log.</p></div>
+    </div>
 
-<div class="header">
+    <br>
 
-<div>
-<div class="logo">HUYS AUTO BODY OPS</div>
-<div>Internal Operations Dashboard</div>
-</div>
+    <div id="moduleContent" class="card hidden"></div>
 
-<div>
-Logged in: Joseph / System Admin
-</div>
-
-</div>
-
-<div class="container">
-
-<div class="grid">
-
-<div class="card">
-<h3>Henry Tasks Today</h3>
-
-<p>Monday • June 1, 2026</p>
-
-<div>
-Call GEICO supplement for RO-260601
-<br>
-
-<span class="status-btn notstarted">Not Started</span>
-<span class="status-btn doing">Doing</span>
-<span class="status-btn done">Done</span>
-</div>
-
-<hr>
-
-<div>
-Review overdue cars and profit alerts
-<br>
-
-<span class="status-btn notstarted">Not Started</span>
-<span class="status-btn doing">Doing</span>
-<span class="status-btn done">Done</span>
-</div>
-
-</div>
-
-<div class="card">
-<h3>Jenny Tasks Today</h3>
-
-<p>Monday • June 1, 2026</p>
-
-<div>
-Update cash in/out for today
-<br>
-
-<span class="status-btn notstarted">Not Started</span>
-<span class="status-btn doing">Doing</span>
-<span class="status-btn done">Done</span>
-</div>
-
-<hr>
-
-<div>
-Print customer report for new intake
-<br>
-
-<span class="status-btn notstarted">Not Started</span>
-<span class="status-btn doing">Doing</span>
-<span class="status-btn done">Done</span>
-</div>
-
-</div>
-
-<div class="card">
-
-<h3>Alerts</h3>
-
-<div class="alert">
-RO-260601 losing profit
-</div>
-
-<div class="alert">
-RO-260603 waiting parts
-</div>
-
-</div>
-
-</div>
-
-<br>
-
-<div class="card">
-
-<h3>Add New Vehicle / Auto Body Invoice Intake</h3>
-
-<label>Customer Name</label>
-<input type="text" placeholder="Customer name">
-
-<label>Phone</label>
-<input type="text" placeholder="Phone number">
-
-<label>Vehicle</label>
-<input type="text" placeholder="2022 Toyota Camry">
-
-<label>VIN</label>
-<input type="text" placeholder="VIN">
-
-<label>Case Type</label>
-<select>
-<option>Insurance</option>
-<option>Cash</option>
-</select>
-
-<h3>Repair Lines</h3>
-
-<div class="vehicle-line">
-<input type="text" placeholder="Repair item">
-<input type="text" placeholder="Hours">
-<input type="text" placeholder="Price">
-</div>
-
-<div class="vehicle-line">
-<input type="text" placeholder="Repair item">
-<input type="text" placeholder="Hours">
-<input type="text" placeholder="Price">
-</div>
-
-<button>Add Line</button>
-
-<h3>Money Summary</h3>
-
-<label>Total Estimate</label>
-<input type="text" placeholder="$">
-
-<label>Deposit</label>
-<input type="text" placeholder="$">
-
-<label>Balance</label>
-<input type="text" placeholder="$">
-
-<button>Create Vehicle Workflow</button>
-
-<button onclick="window.print()">Print A4 Report</button>
-
-</div>
-
-</div>
-
+  </div>
 </div>
 
 <script>
-
 function login(){
-
-document.getElementById("loginPage").style.display="none";
-
-document.getElementById("dashboardPage").style.display="block";
-
+  document.getElementById("loginPage").style.display="none";
+  document.getElementById("dashboard").classList.remove("hidden");
 }
 
+function openModule(module){
+  const box = document.getElementById("moduleContent");
+  box.classList.remove("hidden");
+
+  if(module==="intake"){
+    box.innerHTML = `
+      <h3>New Vehicle Intake / Auto Body Invoice</h3>
+      <label>Estimate #</label><input placeholder="CP1595">
+      <label>RO#</label><input placeholder="2605891">
+      <label>Customer Name</label><input placeholder="Customer name">
+      <label>Phone</label><input placeholder="Phone number">
+      <label>Email</label><input placeholder="Email">
+      <label>Vehicle</label><input placeholder="2025 Ford Explorer ST">
+      <label>VIN</label><input placeholder="VIN">
+      <label>License Plate</label><input placeholder="Plate">
+      <label>Case Type</label><select><option>Cash</option><option>Insurance</option></select>
+
+      <h3>Repair Lines</h3>
+      <div class="line-grid"><input placeholder="Parts Description"><input placeholder="Hours"><input placeholder="Price"></div>
+      <div class="line-grid"><input placeholder="Parts Description"><input placeholder="Hours"><input placeholder="Price"></div>
+      <button>Add Line</button>
+
+      <h3>Money Summary</h3>
+      <label>Total Estimate</label><input placeholder="$">
+      <label>Deposit</label><input placeholder="$">
+      <label>Balance</label><input placeholder="$">
+
+      <button onclick="alert('Vehicle workflow created')">Create Vehicle Workflow</button>
+      <button onclick="window.print()">Print A4 Report</button>
+    `;
+  }
+
+  if(module==="workflow"){
+    box.innerHTML = `
+      <h3>Vehicle Workflow Board</h3>
+      <table class="table">
+      <tr><th>RO#</th><th>Vehicle</th><th>Case</th><th>Stage</th><th>Tech</th><th>Alert</th></tr>
+      <tr><td>RO-260601</td><td>Honda Accord</td><td>Insurance</td><td>Waiting Supplement</td><td>Tung</td><td class="alert-red">Delay</td></tr>
+      <tr><td>RO-260602</td><td>Toyota Camry</td><td>Cash</td><td>Paint</td><td>Kevin</td><td class="alert-yellow">QC Soon</td></tr>
+      </table>
+    `;
+  }
+
+  if(module==="employees"){
+    box.innerHTML = `
+      <h3>Employee Management</h3>
+      <table class="table">
+      <tr><th>Name</th><th>Role</th><th>Skill</th><th>Status</th></tr>
+      <tr><td>Henry</td><td>Owner</td><td>Operations / Estimating</td><td>Active</td></tr>
+      <tr><td>Jenny</td><td>Manager</td><td>Office / Cash Flow</td><td>Active</td></tr>
+      <tr><td>Tung</td><td>Technician</td><td>Frame / Body</td><td>Active</td></tr>
+      </table>
+    `;
+  }
+
+  if(module==="profit"){
+    box.innerHTML = `
+      <h3>Profit Tracking</h3>
+      <table class="table">
+      <tr><th>RO#</th><th>Expected Profit</th><th>Current Profit</th><th>Delay Loss</th><th>Status</th></tr>
+      <tr><td>RO-260601</td><td>$1,200</td><td>$760</td><td>$440</td><td class="alert-red">Warning</td></tr>
+      <tr><td>RO-260602</td><td>$500</td><td>$420</td><td>$80</td><td class="alert-yellow">Watch</td></tr>
+      </table>
+    `;
+  }
+
+  if(module==="cashflow"){
+    box.innerHTML = `
+      <h3>Cash Flow</h3>
+      <label>Income</label><input placeholder="$">
+      <label>Expense</label><input placeholder="$">
+      <label>Memo</label><input placeholder="Payment note">
+      <button>Save Cash Flow Entry</button>
+    `;
+  }
+
+  if(module==="insurance"){
+    box.innerHTML = `
+      <h3>Insurance Cases</h3>
+      <table class="table">
+      <tr><th>RO#</th><th>Insurance</th><th>Claim #</th><th>Status</th></tr>
+      <tr><td>RO-260601</td><td>GEICO</td><td>CLM-123</td><td>Waiting Supplement</td></tr>
+      </table>
+    `;
+  }
+
+  if(module==="cash"){
+    box.innerHTML = `
+      <h3>Cash Cases</h3>
+      <table class="table">
+      <tr><th>RO#</th><th>Customer</th><th>Deposit</th><th>Balance</th></tr>
+      <tr><td>RO-260602</td><td>Tran Minh</td><td>$500</td><td>$800</td></tr>
+      </table>
+    `;
+  }
+
+  if(!["intake","workflow","employees","profit","cashflow","insurance","cash"].includes(module)){
+    box.innerHTML = `<h3>${module.toUpperCase()}</h3><p>This module placeholder is ready. We will build this tab next.</p>`;
+  }
+
+  box.scrollIntoView({behavior:"smooth"});
+}
 </script>
 
 </body>
