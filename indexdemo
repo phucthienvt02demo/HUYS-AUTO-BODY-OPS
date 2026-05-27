@@ -1,48 +1,175 @@
-<!doctype html>
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>HUYS AUTO BODY OPS</title>
 <style>
-*{box-sizing:border-box}body{margin:0;font-family:Arial;background:#070707;color:white}.header{background:#111;padding:18px 24px;border-bottom:1px solid #333;display:flex;justify-content:space-between}.logo{color:#f5c542;font-size:28px;font-weight:900}.container{padding:22px}.card{background:#161616;border:1px solid #333;border-radius:18px;padding:20px;margin-top:20px}.card h3,.module h3{color:#f5c542;margin-top:0}.top{display:grid;grid-template-columns:1fr 1fr 1fr;gap:20px}.modules{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:18px;margin-top:25px}.module{background:#171717;border:1px solid #333;border-radius:18px;padding:22px;cursor:pointer}.module:hover{border-color:#f5c542}button{background:#f5c542;border:none;padding:9px 13px;border-radius:9px;font-weight:bold;margin:4px;cursor:pointer}.blue{background:#1457b8;color:white}.green{background:#15803d;color:white}.gray{background:#444;color:white}.red{color:#ff5f5f;font-weight:bold}.yellow{color:#ffd23f;font-weight:bold}.hidden{display:none}.login{height:100vh;display:flex;align-items:center;justify-content:center}.loginbox{background:#111;border:1px solid #333;border-radius:22px;padding:38px;width:420px}input,select,textarea{width:100%;padding:6px;border:1px solid #555;background:#202020;color:white;font-size:14px}.sheet{background:white;color:black;border:1px solid #000;margin-top:20px;max-width:1120px}.sheet input,.sheet select,.sheet textarea{background:white;color:black;border:0;border-radius:0;padding:2px}.title{text-align:center;font-size:42px;font-weight:900;padding-top:8px}.info{text-align:center;font-size:20px;font-weight:bold;border-bottom:1px solid #000;padding-bottom:8px}.row{display:grid;border-bottom:1px solid #000}.r3{grid-template-columns:1fr 1fr 1fr}.r2{grid-template-columns:1fr 1fr}.cell{border-right:1px dotted #555;padding:4px;min-height:30px;display:flex;gap:6px;align-items:center}.cell:last-child{border-right:0}.label{font-weight:bold;white-space:nowrap}.veh{font-size:26px;font-weight:bold;text-align:center}.lines,.money,.table{width:100%;border-collapse:collapse}.lines th,.lines td,.money th,.money td,.table th,.table td{border:1px dotted #555;padding:3px;text-align:center;height:28px}.table th,.table td{border-color:#333;padding:10px;text-align:left}.left{text-align:left!important}.right{text-align:right!important}.bold{font-weight:bold}.big{font-size:22px;font-weight:bold}.bottom{display:grid;grid-template-columns:1fr 1fr;border-top:1px solid #000}.note{font-size:12px;line-height:1.2;padding:4px;border-right:1px solid #000}.sign{text-align:center;font-size:24px;padding:15px;min-height:160px}.thanks{text-align:center;font-size:24px;font-weight:bold;padding:8px}
-@media print{body{background:white;color:black}.header,.top,.modules,.no-print,#loginPage{display:none!important}.container{padding:0}.card{border:0;background:white;padding:0}.card h3,.card>p{display:none}.sheet{width:100%;max-width:none;margin:0}.title{font-size:34px}.info{font-size:16px}.lines th,.lines td,.money th,.money td{font-size:11px;padding:2px}@page{size:A4;margin:7mm}}
+*{box-sizing:border-box}
+body{margin:0;font-family:Arial,sans-serif;background:#070707;color:#fff}
+.header{background:#111;padding:18px 24px;border-bottom:1px solid #333;display:flex;justify-content:space-between}
+.logo{color:#f5c542;font-size:28px;font-weight:900}
+.container{padding:22px}
+.top{display:grid;grid-template-columns:1fr 1fr 1fr;gap:18px}
+.card,.module{background:#161616;border:1px solid #333;border-radius:16px;padding:18px}
+.card h3,.module h3{color:#f5c542;margin-top:0}
+.modules{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:14px;margin-top:22px}
+.module{cursor:pointer}.module:hover{border-color:#f5c542}
+button{background:#f5c542;border:0;border-radius:8px;padding:9px 13px;font-weight:bold;margin:4px;cursor:pointer}
+.gray{background:#444;color:white}.blue{background:#1457b8;color:white}.green{background:#15803d;color:white}
+.red{color:#ff5f5f;font-weight:bold}.yellow{color:#ffd23f;font-weight:bold}
+.hidden{display:none}.login{height:100vh;display:flex;align-items:center;justify-content:center}.loginbox{background:#111;border:1px solid #333;border-radius:22px;padding:38px;width:420px}
+input,select,textarea{font-size:14px}
+.table{width:100%;border-collapse:collapse}.table th,.table td{border:1px solid #333;padding:10px;text-align:left}
+#moduleContent{margin-top:24px}
+
+/* Excel style estimate */
+.sheet{background:white;color:black;border:1px solid #000;max-width:1120px;margin-top:12px}
+.sheet input,.sheet select,.sheet textarea{background:white;color:black;border:0;border-radius:0;padding:2px;width:100%;font-size:15px}
+.shop-title{text-align:center;font-size:42px;font-weight:900;letter-spacing:1px;padding-top:8px}
+.shop-info{text-align:center;font-size:20px;font-weight:bold;border-bottom:1px solid #000;padding-bottom:7px}
+.row{display:grid;border-bottom:1px solid #000}.r3{grid-template-columns:1fr 1fr 1fr}.r2{grid-template-columns:1fr 1fr}
+.cell{border-right:1px dotted #777;padding:4px;min-height:30px;display:flex;gap:6px;align-items:center}.cell:last-child{border-right:0}
+.label{font-weight:bold;white-space:nowrap}.vehicle-name{font-size:26px;font-weight:bold;text-align:center}
+.lines,.money{width:100%;border-collapse:collapse}.lines th,.lines td,.money th,.money td{border:1px dotted #555;padding:3px;text-align:center;height:28px}
+.left{text-align:left!important}.right{text-align:right!important}.bold{font-weight:bold}.big{font-size:22px;font-weight:bold}
+.bottom{display:grid;grid-template-columns:1fr 1fr;border-top:1px solid #000}.note{font-size:12px;line-height:1.2;padding:4px;border-right:1px solid #000}.signature{text-align:center;font-size:24px;padding:14px;min-height:150px}.thanks{text-align:center;font-size:24px;font-weight:bold;padding:8px}
+@media print{
+body{background:white;color:black}.header,.top,.modules,.no-print,#loginPage{display:none!important}.container{padding:0}.card{border:0;background:white;padding:0}#moduleContent{display:block!important;margin:0}.card h3,.card>p{display:none}.sheet{width:100%;max-width:none;margin:0}.shop-title{font-size:34px}.shop-info{font-size:16px}.lines th,.lines td,.money th,.money td{font-size:11px;padding:2px}@page{size:A4;margin:7mm}
+}
 </style>
 </head>
 <body>
-<div id="loginPage" class="login"><div class="loginbox"><div class="logo">HUYS AUTO BODY OPS</div><h2>ops.huysautobody.com</h2><label>Email</label><input><label>Password</label><input type="password"><button onclick="login()">LOGIN</button></div></div>
+<div id="loginPage" class="login">
+  <div class="loginbox">
+    <div class="logo">HUYS AUTO BODY OPS</div>
+    <h2>ops.huysautobody.com</h2>
+    <label>Email</label><input style="width:100%;padding:10px;margin:8px 0;background:#222;color:white;border:1px solid #444;border-radius:10px">
+    <label>Password</label><input type="password" style="width:100%;padding:10px;margin:8px 0;background:#222;color:white;border:1px solid #444;border-radius:10px">
+    <button onclick="login()">LOGIN</button>
+  </div>
+</div>
+
 <div id="dashboard" class="hidden">
-<div class="header"><div><div class="logo">HUYS AUTO BODY OPS</div><div>Internal Operations Command Center</div></div><div>Logged in: Joseph / System Admin</div></div>
+<div class="header">
+  <div><div class="logo">HUYS AUTO BODY OPS</div><div>Internal Operations Command Center</div></div>
+  <div>Logged in: Joseph / System Admin</div>
+</div>
+
 <div class="container">
-<div class="top">
-<div class="card"><h3>Henry Tasks Today</h3><p>Monday • June 1, 2026</p><p>1. Call GEICO supplement for RO-260601</p><button class="gray">Chưa làm</button><button class="blue">Đang làm</button><button class="green">Xong</button><hr><p>2. Review overdue cars and profit alerts</p><button class="gray">Chưa làm</button><button class="blue">Đang làm</button><button class="green">Xong</button></div>
-<div class="card"><h3>Jenny Tasks Today</h3><p>Monday • June 1, 2026</p><p>1. Update cash in/out for today</p><button class="gray">Chưa làm</button><button class="blue">Đang làm</button><button class="green">Xong</button><hr><p>2. Print customer report for new intake</p><button class="gray">Chưa làm</button><button class="blue">Đang làm</button><button class="green">Xong</button></div>
-<div class="card"><h3>Alerts / Vehicle Warnings</h3><p class="red">RO-260601 losing profit</p><p class="yellow">RO-260603 waiting parts</p><p class="yellow">RO-260610 insurance no response</p></div>
+  <div class="top">
+    <div class="card"><h3>Henry Tasks Today</h3><p>Monday • June 1, 2026</p><p>1. Call GEICO supplement for RO-260601</p><button class="gray">Chưa làm</button><button class="blue">Đang làm</button><button class="green">Xong</button><hr><p>2. Review overdue cars and profit alerts</p><button class="gray">Chưa làm</button><button class="blue">Đang làm</button><button class="green">Xong</button></div>
+    <div class="card"><h3>Jenny Tasks Today</h3><p>Monday • June 1, 2026</p><p>1. Update cash in/out for today</p><button class="gray">Chưa làm</button><button class="blue">Đang làm</button><button class="green">Xong</button><hr><p>2. Print customer report for new intake</p><button class="gray">Chưa làm</button><button class="blue">Đang làm</button><button class="green">Xong</button></div>
+    <div class="card"><h3>Alerts / Vehicle Warnings</h3><p class="red">RO-260601 losing profit</p><p class="yellow">RO-260603 waiting parts</p><p class="yellow">RO-260610 insurance no response</p></div>
+  </div>
+
+  <div class="modules">
+    <div class="module" onclick="openModule('intake')"><h3>New Vehicle Intake</h3><p>Nhập xe mới, estimate, line items, customer report.</p></div>
+    <div class="module" onclick="openModule('workflow')"><h3>Vehicle Workflow Board</h3><p>Xe đang ở stage nào, ai đang giữ, deadline.</p></div>
+    <div class="module" onclick="openModule('employees')"><h3>Employee Management</h3><p>Danh sách thợ, role, phone, skill.</p></div>
+    <div class="module" onclick="openModule('insurance')"><h3>Insurance Cases</h3><p>Claim, adjuster, supplement, approval.</p></div>
+    <div class="module" onclick="openModule('cash')"><h3>Cash Cases</h3><p>Deposit, balance, payment status.</p></div>
+    <div class="module" onclick="openModule('profit')"><h3>Profit Tracking</h3><p>Lời dự kiến, lời thật, delay cost.</p></div>
+    <div class="module" onclick="openModule('parts')"><h3>Parts Ordering</h3><p>Ordered, received, backorder.</p></div>
+    <div class="module" onclick="openModule('inventory')"><h3>Inventory</h3><p>Supplies in/out, low stock.</p></div>
+    <div class="module" onclick="openModule('evidence')"><h3>Evidence Records</h3><p>Link folder hình/video trên server shop.</p></div>
+  </div>
+
+  <div id="moduleContent" class="card hidden"></div>
 </div>
-<div class="modules">
-<div class="module" onclick="openModule('intake')"><h3>New Vehicle Intake</h3><p>Nhập xe mới, estimate, line items, customer report.</p></div>
-<div class="module" onclick="openModule('workflow')"><h3>Vehicle Workflow Board</h3><p>Xe đang ở stage nào, ai đang giữ, deadline.</p></div>
-<div class="module" onclick="openModule('employees')"><h3>Employee Management</h3><p>Danh sách thợ, role, phone, skill.</p></div>
-<div class="module" onclick="openModule('insurance')"><h3>Insurance Cases</h3><p>Claim, adjuster, supplement, approval.</p></div>
-<div class="module" onclick="openModule('cash')"><h3>Cash Cases</h3><p>Deposit, balance, payment status.</p></div>
-<div class="module" onclick="openModule('profit')"><h3>Profit Tracking</h3><p>Lời dự kiến, lời thật, delay cost.</p></div>
-<div class="module" onclick="openModule('parts')"><h3>Parts Ordering</h3><p>Ordered, received, backorder, wrong part.</p></div>
-<div class="module" onclick="openModule('inventory')"><h3>Inventory</h3><p>Supplies in/out, low stock.</p></div>
-<div class="module" onclick="openModule('evidence')"><h3>Evidence Records</h3><p>Link folder hình/video trên server shop.</p></div>
 </div>
-<div id="moduleContent" class="card hidden"></div>
-</div></div>
+
 <script>
-function login(){loginPage.style.display="none";dashboard.classList.remove("hidden")}
-function money(v){return Number(String(v||0).replace(/[^0-9.]/g,""))||0}
-function fmt(n){return "$"+Number(n||0).toLocaleString(undefined,{minimumFractionDigits:2,maximumFractionDigits:2})}
-function openModule(m){moduleContent.classList.remove("hidden"); if(m==="intake"){moduleContent.innerHTML=intakeHTML(); setTimeout(()=>{initLines();calcTotals()},50)} else if(m==="workflow"){moduleContent.innerHTML='<h3>Vehicle Workflow Board</h3><table class="table"><tr><th>RO#</th><th>Vehicle</th><th>Case</th><th>Stage</th><th>Tech</th><th>Alert</th></tr><tr><td>RO-260601</td><td>Honda Accord</td><td>Insurance</td><td>Waiting Supplement</td><td>Tung</td><td class="red">Delay</td></tr></table>'} else {moduleContent.innerHTML='<h3>'+m.toUpperCase()+'</h3><p>This module is ready to build next.</p>'} moduleContent.scrollIntoView({behavior:"smooth"})}
-function intakeHTML(){return `<h3 class="no-print">New Vehicle Intake / Auto Body Invoice</h3><p class="no-print">Nhập số vào các ô giờ và tiền, hệ thống tự tính tổng. Bấm Print A4 Report để in.</p><div class="sheet"><div class="title">HUYS AUTO BODY & PAINTING LLC</div><div class="info">13932 Seaboard Cir., Garden Grove, CA 92843- (714) 589-7779 - huysautobody@gmail.com</div><div class="row r3"><div class="cell"><b>ESTIMATE #:</b><input placeholder="CP1595"></div><div class="cell"><b>RO#</b><input placeholder="2605891"></div><div class="cell"><b>DATE:</b><input type="date"></div></div><div class="row r2"><div><div class="cell"><b>Name:</b><input placeholder="Customer name"></div><div class="cell"><b>phone:</b><input placeholder="Phone"></div><div class="cell"><b>email:</b><input placeholder="Email"></div></div><div><div class="cell"><input class="veh" placeholder="2025 Ford Explorer ST"></div><div class="row r3"><div class="cell"><b>Lic:</b><input></div><div class="cell"><b>Miles:</b><input></div><div class="cell"><b>Color:</b><input placeholder="white pearl"></div></div><div class="cell"><b>Vin:</b><input></div></div></div><table class="lines"><thead><tr><th>Line</th><th>Opera</th><th>Parts Description</th><th>Part Number</th><th>Qty</th><th>Ext Price</th><th>Frame</th><th>mechanic</th><th>Body</th><th>Pnt Sply</th><th>Paint</th></tr></thead><tbody id="lineItems"></tbody></table><div class="row r2"><div class="cell"><b>Vehicle Released :</b></div><div class="cell"><b>Sign:</b></div></div><div class="no-print"><button onclick="addLine()">+ Add Line</button><button onclick="removeLine()">- Remove Line</button></div><table class="money"><tr><th>Category</th><th>Basis hrs.</th><th></th><th>Rate /hrs.</th><th>Cost $</th></tr><tr><td class="left bold">Parts</td><td></td><td></td><td></td><td><input id="partsTotal" value="0" oninput="calcTotals()" class="right"></td></tr><tr><td class="left bold">Frame Labor</td><td><input id="frameHrs" value="0" oninput="calcTotals()"></td><td>@</td><td><input id="frameRate" value="150" oninput="calcTotals()"></td><td id="frameCost" class="right">$0.00</td></tr><tr><td class="left bold">Mechanic Labor</td><td><input id="mechHrs" value="0" oninput="calcTotals()"></td><td>@</td><td><input id="mechRate" value="180" oninput="calcTotals()"></td><td id="mechCost" class="right">$0.00</td></tr><tr><td class="left bold">Body Labor</td><td><input id="bodyHrs" value="0" oninput="calcTotals()"></td><td>@</td><td><input id="bodyRate" value="110" oninput="calcTotals()"></td><td id="bodyCost" class="right">$0.00</td></tr><tr><td class="left bold">Paint Supplies</td><td><input id="supplyHrs" value="0" oninput="calcTotals()"></td><td>@</td><td><input id="supplyRate" value="85" oninput="calcTotals()"></td><td id="supplyCost" class="right">$0.00</td></tr><tr><td class="left bold">Paint Labor</td><td><input id="paintHrs" value="0" oninput="calcTotals()"></td><td>@</td><td><input id="paintRate" value="85" oninput="calcTotals()"></td><td id="paintCost" class="right">$0.00</td></tr><tr><td class="left bold">Miscellaneous</td><td></td><td></td><td></td><td><input id="miscCost" value="0" oninput="calcTotals()" class="right"></td></tr><tr><td colspan="3"></td><td class="bold right">SUB TOTAL</td><td id="subTotal" class="right bold">$0.00</td></tr><tr><td class="left bold">Sales Tax</td><td colspan="2"></td><td><input id="taxBase" value="0" oninput="calcTotals()"> @ <input id="taxRate" value="8.75" oninput="calcTotals()" style="width:55px">%</td><td id="taxAmount" class="right">$0.00</td></tr><tr><td colspan="3" class="left bold big">Total Cost of Repairs</td><td class="bold right">TOTAL</td><td id="grandTotal" class="right big">$0.00</td></tr><tr><td colspan="3" class="left bold">P/S: <input placeholder="1 year warranty of paint"></td><td class="bold right">Cash Deal</td><td><input id="cashDeal" oninput="calcTotals()" class="right"></td></tr><tr><td colspan="3" class="left bold">*NOTE: <input value="1 year warranty of paint"></td><td class="bold right">Deposit <input id="deposit" value="0" oninput="calcTotals()" style="width:100px"></td><td id="balance" class="right big">$0.00</td></tr></table><div class="bottom"><div><div class="note">The estimate is valid for the next 30 days. Damage caused by theft, fire, or natural disasters is not covered. I hereby authorized --- Power of Attorney to sign over checks. Employees may operate my vehicle for testing, inspection, and delivery at my risk. If I cancel repairs before completion, tear-down/reassembly fees may apply. Storage parking fee will be charged after completed vehicle is not picked up. Warranty period: 1 YEAR for replacement parts - 3 YEAR for paint if peeling or cracked.</div><div class="thanks">Thank You For Your Business!</div></div><div><div class="sign">SIGNATURE<br><br><br><br>DATE:................../................../..................</div></div></div></div><div class="no-print"><button onclick="alert('Vehicle workflow created')">Create Vehicle Workflow</button><button onclick="window.print()">Print A4 Report</button><button onclick="alert('Job slip will print next version')">Print Job Slip</button></div>`}
+function login(){document.getElementById('loginPage').style.display='none';document.getElementById('dashboard').classList.remove('hidden')}
+function money(v){return Number(String(v||0).replace(/[^0-9.]/g,''))||0}
+function fmt(n){return '$'+Number(n||0).toLocaleString(undefined,{minimumFractionDigits:2,maximumFractionDigits:2})}
+
+function openModule(m){
+ const box=document.getElementById('moduleContent'); box.classList.remove('hidden');
+ if(m==='intake'){box.innerHTML=intakeHTML(); setTimeout(()=>{initLines();calcTotals()},20)}
+ else if(m==='workflow'){box.innerHTML='<h3>Vehicle Workflow Board</h3><table class="table"><tr><th>RO#</th><th>Vehicle</th><th>Case</th><th>Stage</th><th>Tech</th><th>Alert</th></tr><tr><td>RO-260601</td><td>Honda Accord</td><td>Insurance</td><td>Waiting Supplement</td><td>Tung</td><td class="red">Delay</td></tr></table>'}
+ else{box.innerHTML='<h3>'+m.toUpperCase()+'</h3><p>This module is ready to build next.</p>'}
+ box.scrollIntoView({behavior:'smooth'})
+}
+
+function intakeHTML(){
+return `<h3 class="no-print">New Vehicle Intake / Auto Body Invoice</h3>
+<p class="no-print">Mẫu này giống sheet Excel: nhập số là tự tính tiền. In ra A4 bằng nút Print A4 Report.</p>
+<div class="sheet">
+<div class="shop-title">HUYS AUTO BODY & PAINTING LLC</div>
+<div class="shop-info">13932 Seaboard Cir., Garden Grove, CA 92843- (714) 589-7779 - huysautobody@gmail.com</div>
+
+<div class="row r3">
+<div class="cell"><span class="label">ESTIMATE #:</span><input placeholder="CP1595"></div>
+<div class="cell"><span class="label">RO#</span><input placeholder="2605891"></div>
+<div class="cell"><span class="label">DATE:</span><input type="date"></div>
+</div>
+
+<div class="row r2">
+<div>
+<div class="cell"><span class="label">Name:</span><input placeholder="Customer name"></div>
+<div class="cell"><span class="label">phone:</span><input placeholder="Phone"></div>
+<div class="cell"><span class="label">email:</span><input placeholder="Email"></div>
+</div>
+<div>
+<div class="cell"><input class="vehicle-name" placeholder="2025 Ford Explorer ST"></div>
+<div class="row r3"><div class="cell"><span class="label">Lic:</span><input></div><div class="cell"><span class="label">Miles:</span><input></div><div class="cell"><span class="label">Color:</span><input placeholder="white pearl"></div></div>
+<div class="cell"><span class="label">Vin:</span><input></div>
+</div>
+</div>
+
+<table class="lines">
+<thead><tr><th>Line</th><th>Opera</th><th>Parts Description</th><th>Part Number</th><th>Qty</th><th>Ext Price</th><th>Frame</th><th>mechanic</th><th>Body</th><th>Pnt Sply</th><th>Paint</th></tr></thead>
+<tbody id="lineItems"></tbody>
+</table>
+
+<div class="row r2"><div class="cell"><span class="label">Vehicle Released :</span></div><div class="cell"><span class="label">Sign:</span></div></div>
+<div class="no-print"><button onclick="addLine()">+ Add Line</button><button onclick="removeLine()">- Remove Line</button></div>
+
+<table class="money">
+<tr><th>Category</th><th>Basis hrs.</th><th></th><th>Rate /hrs.</th><th>Cost $</th></tr>
+<tr><td class="left bold">Parts</td><td></td><td></td><td></td><td><input id="partsTotal" value="0" oninput="calcTotals()" class="right"></td></tr>
+<tr><td class="left bold">Frame Labor</td><td><input id="frameHrs" value="0" oninput="calcTotals()"></td><td>@</td><td><input id="frameRate" value="150" oninput="calcTotals()"></td><td id="frameCost" class="right">$0.00</td></tr>
+<tr><td class="left bold">Mechanic Labor</td><td><input id="mechHrs" value="0" oninput="calcTotals()"></td><td>@</td><td><input id="mechRate" value="180" oninput="calcTotals()"></td><td id="mechCost" class="right">$0.00</td></tr>
+<tr><td class="left bold">Body Labor</td><td><input id="bodyHrs" value="0" oninput="calcTotals()"></td><td>@</td><td><input id="bodyRate" value="110" oninput="calcTotals()"></td><td id="bodyCost" class="right">$0.00</td></tr>
+<tr><td class="left bold">Paint Supplies</td><td><input id="supplyHrs" value="0" oninput="calcTotals()"></td><td>@</td><td><input id="supplyRate" value="85" oninput="calcTotals()"></td><td id="supplyCost" class="right">$0.00</td></tr>
+<tr><td class="left bold">Paint Labor</td><td><input id="paintHrs" value="0" oninput="calcTotals()"></td><td>@</td><td><input id="paintRate" value="85" oninput="calcTotals()"></td><td id="paintCost" class="right">$0.00</td></tr>
+<tr><td class="left bold">Miscellaneous</td><td></td><td></td><td></td><td><input id="miscCost" value="0" oninput="calcTotals()" class="right"></td></tr>
+<tr><td colspan="3"></td><td class="bold right">SUB TOTAL</td><td id="subTotal" class="right bold">$0.00</td></tr>
+<tr><td class="left bold">Sales Tax</td><td colspan="2"></td><td><input id="taxBase" value="0" oninput="calcTotals()" style="width:80px"> @ <input id="taxRate" value="8.75" oninput="calcTotals()" style="width:55px">%</td><td id="taxAmount" class="right">$0.00</td></tr>
+<tr><td colspan="3" class="left bold big">Total Cost of Repairs</td><td class="bold right">TOTAL</td><td id="grandTotal" class="right big">$0.00</td></tr>
+<tr><td colspan="3" class="left bold">P/S: <input placeholder="1 year warranty of paint"></td><td class="bold right">Cash Deal</td><td><input id="cashDeal" oninput="calcTotals()" class="right"></td></tr>
+<tr><td colspan="3" class="left bold">*NOTE: <input value="1 year warranty of paint"></td><td class="bold right">Deposit <input id="deposit" value="0" oninput="calcTotals()" style="width:100px"></td><td id="balance" class="right big">$0.00</td></tr>
+</table>
+
+<div class="bottom">
+<div><div class="note">The estimate is valid for the next 30 days. Damage caused by theft, fire, or natural disasters is not covered. I hereby authorized --- Power of Attorney to sign over checks. Employees may operate my vehicle for testing, inspection, and delivery at my risk. If I cancel repairs before completion, tear-down/reassembly fees may apply. Storage parking fee will be charged after completed vehicle is not picked up. Warranty period: 1 YEAR for replacement parts - 3 YEAR for paint if peeling or cracked.</div><div class="thanks">Thank You For Your Business!</div></div>
+<div><div class="signature">SIGNATURE<br><br><br><br>DATE:................../................../..................</div></div>
+</div>
+</div>
+<div class="no-print"><button onclick="alert('Vehicle workflow created')">Create Vehicle Workflow</button><button onclick="window.print()">Print A4 Report</button><button onclick="alert('Job slip will print next version')">Print Job Slip</button></div>`
+}
+
 let lineCount=0;
-function initLines(){lineCount=0;lineItems.innerHTML="";for(let i=0;i<10;i++)addLine(i<4)}
-function addLine(prefill=false){lineCount++;let ex=[["repair","front bumper","","1","","","","2","2","2"],["repair","RH rear door","","1","","","","2","1","1"],["repair","RH quarter panel","","1","","","","2","1","1"],["paint","wheel molding","","2","","","","","",""]],e=prefill?ex[lineCount-1]:["","","","1","","","","","",""];lineItems.insertAdjacentHTML("beforeend",`<tr><td>${lineCount}</td><td><input value="${e[0]||''}"></td><td><input value="${e[1]||''}"></td><td><input value="${e[2]||''}"></td><td><input value="${e[3]||''}"></td><td><input value="${e[4]||''}" oninput="sumLineHours()"></td><td><input value="${e[5]||''}" oninput="sumLineHours()"></td><td><input value="${e[6]||''}" oninput="sumLineHours()"></td><td><input value="${e[7]||''}" oninput="sumLineHours()"></td><td><input value="${e[8]||''}" oninput="sumLineHours()"></td><td><input value="${e[9]||''}" oninput="sumLineHours()"></td></tr>`);sumLineHours()}
-function removeLine(){if(lineItems.lastElementChild){lineItems.removeChild(lineItems.lastElementChild);lineCount--;sumLineHours()}}
-function sumLineHours(){let body=0,supply=0,paint=0,frame=0,mech=0,parts=0;document.querySelectorAll("#lineItems tr").forEach(r=>{let i=r.querySelectorAll("input");parts+=money(i[4].value);frame+=money(i[5].value);mech+=money(i[6].value);body+=money(i[7].value);supply+=money(i[8].value);paint+=money(i[9].value)});partsTotal.value=parts;frameHrs.value=frame;mechHrs.value=mech;bodyHrs.value=body;supplyHrs.value=supply;paintHrs.value=paint;calcTotals()}
-function calcTotals(){let parts=money(partsTotal.value),frame=money(frameHrs.value)*money(frameRate.value),mech=money(mechHrs.value)*money(mechRate.value),body=money(bodyHrs.value)*money(bodyRate.value),supply=money(supplyHrs.value)*money(supplyRate.value),paint=money(paintHrs.value)*money(paintRate.value),misc=money(miscCost.value),subtotal=parts+frame+mech+body+supply+paint+misc,tax=money(taxBase.value)*money(taxRate.value)/100,total=subtotal+tax,cash=money(cashDeal.value)||total,bal=cash-money(deposit.value);frameCost.innerText=fmt(frame);mechCost.innerText=fmt(mech);bodyCost.innerText=fmt(body);supplyCost.innerText=fmt(supply);paintCost.innerText=fmt(paint);subTotal.innerText=fmt(subtotal);taxAmount.innerText=fmt(tax);grandTotal.innerText=fmt(total);balance.innerText=fmt(bal)}
+function initLines(){lineCount=0;document.getElementById('lineItems').innerHTML='';for(let i=0;i<10;i++)addLine(i<4)}
+function addLine(prefill=false){
+ lineCount++;
+ let examples=[['repair','front bumper','','1','','','','2','2','2'],['repair','RH rear door','','1','','','','2','1','1'],['repair','RH quarter panel','','1','','','','2','1','1'],['paint','wheel molding','','2','','','','','','']];
+ let e=prefill?examples[lineCount-1]:['','','','1','','','','','',''];
+ document.getElementById('lineItems').insertAdjacentHTML('beforeend',`<tr><td>${lineCount}</td><td><input value="${e[0]||''}"></td><td><input value="${e[1]||''}"></td><td><input value="${e[2]||''}"></td><td><input value="${e[3]||''}"></td><td><input value="${e[4]||''}" oninput="sumLineHours()"></td><td><input value="${e[5]||''}" oninput="sumLineHours()"></td><td><input value="${e[6]||''}" oninput="sumLineHours()"></td><td><input value="${e[7]||''}" oninput="sumLineHours()"></td><td><input value="${e[8]||''}" oninput="sumLineHours()"></td><td><input value="${e[9]||''}" oninput="sumLineHours()"></td></tr>`);
+ sumLineHours()
+}
+function removeLine(){let t=document.getElementById('lineItems');if(t.lastElementChild){t.removeChild(t.lastElementChild);lineCount--;sumLineHours()}}
+function sumLineHours(){
+ let body=0,supply=0,paint=0,frame=0,mech=0,parts=0;
+ document.querySelectorAll('#lineItems tr').forEach(r=>{let i=r.querySelectorAll('input');parts+=money(i[4].value);frame+=money(i[5].value);mech+=money(i[6].value);body+=money(i[7].value);supply+=money(i[8].value);paint+=money(i[9].value)});
+ partsTotal.value=parts;frameHrs.value=frame;mechHrs.value=mech;bodyHrs.value=body;supplyHrs.value=supply;paintHrs.value=paint;calcTotals()
+}
+function calcTotals(){
+ let parts=money(partsTotal.value),frame=money(frameHrs.value)*money(frameRate.value),mech=money(mechHrs.value)*money(mechRate.value),body=money(bodyHrs.value)*money(bodyRate.value),supply=money(supplyHrs.value)*money(supplyRate.value),paint=money(paintHrs.value)*money(paintRate.value),misc=money(miscCost.value);
+ let subtotal=parts+frame+mech+body+supply+paint+misc,tax=money(taxBase.value)*money(taxRate.value)/100,total=subtotal+tax,cash=money(cashDeal.value)||total,bal=cash-money(deposit.value);
+ frameCost.innerText=fmt(frame);mechCost.innerText=fmt(mech);bodyCost.innerText=fmt(body);supplyCost.innerText=fmt(supply);paintCost.innerText=fmt(paint);subTotal.innerText=fmt(subtotal);taxAmount.innerText=fmt(tax);grandTotal.innerText=fmt(total);balance.innerText=fmt(bal)
+}
 </script>
-</body></html>
+</body>
+</html>
